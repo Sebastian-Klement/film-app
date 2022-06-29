@@ -1,5 +1,5 @@
 export interface Film {
-  id:any;
+  id: any;
   title: string;
   episode_id: any;
   opening_crawl: string;

@@ -11,9 +11,9 @@ import { FilmService } from '../film.service';
 })
 export class FilmCreateComponent implements OnInit {
   film: Film = {
-    id:0,
+    id: null,
     title: '',
-    episode_id: 0,
+    episode_id: null,
     opening_crawl: '',
     director: '',
     producer: '',
@@ -35,8 +35,8 @@ export class FilmCreateComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    if (this.router.url != '/films/filmcreate') {
-      var id = Number(this.activatedRoute.snapshot.paramMap.get('id'));
+    if (this.router.url != '/films/create') {
+      var id = Number(this.activatedRoute.snapshot.paramMap.get('episode_id'));
       this.filmService.getFilmById(id).subscribe((result) => {
         this.film = result;
       });

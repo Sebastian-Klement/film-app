@@ -7,7 +7,6 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { FilmsComponent } from './films.component';
 import { FilmListComponent } from './film-list/film-list.component';
-import { FilmDetailComponent } from './film-detail/film-detail.component';
 import { FilmService } from './film.service';
 import { FilmCreateComponent } from './film-create/film-create.component';
 
@@ -21,12 +20,12 @@ const routes: Routes = [
         component: FilmListComponent,
       },
       {
-        path: 'filmcreate',
+        path: 'create',
         component: FilmCreateComponent,
       },
       {
-        path: 'filmdetails/:episode_id',
-        component: FilmDetailComponent,
+        path: 'edit/:episode_id',
+        component: FilmCreateComponent,
       },
     ],
   },
@@ -36,7 +35,6 @@ const routes: Routes = [
   declarations: [
     FilmsComponent,
     FilmListComponent,
-    FilmDetailComponent,
     FilmCreateComponent,
   ],
   imports: [
