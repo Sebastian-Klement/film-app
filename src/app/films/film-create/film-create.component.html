@@ -1,0 +1,87 @@
+<p>film-create works!</p>
+
+<div class="card">
+  <div class="card-header">
+    <h5>Film hinzufügen</h5>
+  </div>
+  <div class="card-body">
+    <form>
+      <div class="row">
+        <div class="col">
+          <!-- titel -->
+          <label class="form-label">Titel des Films</label>
+          <input
+            [(ngModel)]="film.title"
+            type="text"
+            name="titel"
+            class="form-control"
+          />
+        </div>
+        <div class="col-2">
+          <!-- id -->
+          <label class="form-label">Episode_Id des Films</label>
+          <input
+            [(ngModel)]="film.episode_id"
+            type="number"
+            name="episode_id"
+            class="form-control"
+          />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <!-- director -->
+          <label class="form-label">Director des Films</label>
+          <input
+            [(ngModel)]="film.director"
+            type="text"
+            name="director"
+            class="form-control"
+          />
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <!-- Producent -->
+          <label class="form-label">Produzent des Films</label>
+          <input
+            [(ngModel)]="film.producer"
+            type="text"
+            name="producent"
+            class="form-control"
+          />
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <!-- Erscheinungsdatum -->
+          <label class="form-label">Erscheinungsdatum</label>
+          <input
+            [(ngModel)]="film.release_date"
+            type="text"
+            name="releasedate"
+            class="form-control"
+          />
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <!-- Beschreibung -->
+          <label class="form-label">Beschreibung des Films</label>
+          <input
+            [(ngModel)]="film.opening_crawl"
+            type="text"
+            name="beschreibung"
+            class="form-control"
+          />
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="card-footer">
+    <button (click)="save()" class="btn btn-primary">Film Hinzufügen</button>
+  </div>
+</div>

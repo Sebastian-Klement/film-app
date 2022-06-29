@@ -10,26 +10,19 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './in-memory-data.service';
-import { FilmDetailComponent } from './movie-detail/movie-detail.component';
 import { HeaderComponent } from './header/header.component';
 import { FilmsComponent } from './films/films.component';
+import { FilmsModule } from './films/films.module';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HomeComponent,
-    FilmDetailComponent,
-    HeaderComponent,
-    FilmsComponent,
-  ],
+  declarations: [AppComponent, HomeComponent, HeaderComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, {
-      dataEncapsulation: false,
-    }),
+    FilmsModule,
+    HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService),
   ],
   exports: [],
   providers: [],

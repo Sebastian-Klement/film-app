@@ -1,0 +1,26 @@
+<div class="container w-75">
+  <div class="h-100 p-5 text-center">
+    <h1 class="display-5 fw-bold">Filme</h1>
+  </div>
+  <div class="row row-cols-sm-1 row-cols-md-2 row-cols-lg-3">
+    <div class="col" *ngFor="let film of films">
+      <div class="card border-0 mb-3">
+        <img src="./assets/images/ruin.jpg" class="card-img-top" alt="..." />
+        <div class="card-body mb-2">
+          <h5 class="card-title">{{ film.title }}</h5>
+          <p class="card-text">
+            Direktor: {{ film.director }} <br />Produzenten:
+            {{ film.producer }} <br />Erscheinungsdatum:
+            {{ film.release_date }}
+          </p>
+          <a routerLink="/films/filmdetails/{{ film.episode_id }}" routerLinkActive="active" class="card-link">
+            Mehr Informationen
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card-footer">
+    <button routerLink="/films/filmcreate" class="btn btn-primary">Film hinzufügen</button>
+  </div>
+</div>

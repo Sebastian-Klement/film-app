@@ -1,6 +1,7 @@
 export interface Film {
+  id:any;
   title: string;
-  episode_id: number;
+  episode_id: any;
   opening_crawl: string;
   director: string;
   producer: string;
@@ -9,7 +10,7 @@ export interface Film {
   planets: string[];
   starships: string[];
   vehicles: string[];
-  species: string[];
+  specie: string[];
   created: string;
   edited: string;
   url: string;

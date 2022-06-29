@@ -1,32 +1,30 @@
+import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
 
 import { HomeComponent } from './home/home.component';
-import { FilmsComponent } from './films/films.component';
-import { FilmDetailComponent } from './movie-detail/movie-detail.component';
 
 const routes: Routes = [
-  {
-    path: '',
-    redirectTo: 'home',
-    pathMatch: 'full',
-  },
   {
     path: 'home',
     component: HomeComponent,
   },
   {
-    path: 'detail/:episode_id',
-    component: FilmDetailComponent,
-  },
-  {
-    path: 'films',
-    component: FilmsComponent,
+    path: '',
+    redirectTo: 'home',
+    pathMatch: 'full',
   },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [
+    BrowserModule,
+    HttpClientModule,
+    CommonModule,
+    RouterModule.forRoot(routes),
+  ],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}

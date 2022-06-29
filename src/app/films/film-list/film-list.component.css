@@ -1,0 +1,21 @@
+.card {
+  text-align: left;
+  background-color: #bbbbbb;
+  width: auto;
+  letter-spacing: 0px;
+}
+.card-title {
+  font-weight: bold;
+  font-size: 25px;
+}
+
+.card-text {
+  font-size: 14px;
+}
+
+.card-link {
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 12;
+  color: #10172c;
+}
