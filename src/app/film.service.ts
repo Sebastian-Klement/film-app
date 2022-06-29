@@ -1,14 +1,17 @@
 import { Injectable } from '@angular/core';
-import { Film } from './film.model';
 import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { tap } from 'rxjs/operators';
+
+import { Charakter } from './charakter.model';
+import { Film } from './film.model';
 
 @Injectable({
   providedIn: 'root',
 })
 export class FilmService {
   filmUrl: string = '/api/films';
+  charakterUrl: string = '/api/charaktere';
   response: any;
 
   constructor(private httpClient: HttpClient) {}
@@ -17,13 +20,16 @@ export class FilmService {
   getFilms(): Observable<Film[]> {
     return (this.response = this.httpClient.get<Film[]>(this.filmUrl));
   }
+  /** GET charaktere from the server */
+  getCharaktere(): Observable<Charakter[]> {
+    return (this.response = this.httpClient.get<Charakter[]>(
+      this.charakterUrl
+    ));
+  }
 
   /** GET movie by id. Will 404 if id not found */
   getFilmById(id: number): Observable<Film> {
-    console.log('getfilmbyid: ' + id);
-    return (this.response = this.httpClient.get<Film>(
-      this.filmUrl + '/' + id
-    ));
+    return (this.response = this.httpClient.get<Film>(this.filmUrl + '/' + id));
   }
 
   /* GET movies whose name contains search term */

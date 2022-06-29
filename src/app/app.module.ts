@@ -11,21 +11,29 @@ import { HttpClientModule } from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './in-memory-data.service';
 import { HeaderComponent } from './header/header.component';
-import { FilmsComponent } from './films/films.component';
-import { FilmsModule } from './films/films.module';
+import { FilmService } from './film.service';
+import { FilmCreateComponent } from './film-create/film-create.component';
+import { FilmListComponent } from './film-list/film-list.component';
+import { CharaktereListComponent } from './charaktere-list/charaktere-list.component';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, HeaderComponent],
+  declarations: [
+    AppComponent,
+    HomeComponent,
+    HeaderComponent,
+    FilmCreateComponent,
+    FilmListComponent,
+    CharaktereListComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    FilmsModule,
     HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService),
   ],
   exports: [],
-  providers: [],
+  providers: [FilmService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

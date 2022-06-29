@@ -13,7 +13,7 @@
             {{ film.producer }} <br />Erscheinungsdatum:
             {{ film.release_date }}
           </p>
-          <a routerLink="/films/edit/{{ film.episode_id }}" routerLinkActive="active" class="card-link">
+          <a routerLink="/edit/{{ film.episode_id }}" routerLinkActive="active" class="card-link">
             Mehr Informationen
           </a>
         </div>
@@ -21,6 +21,6 @@
     </div>
   </div>
   <div class="card-footer">
-    <button routerLink="/films/create" class="btn btn-primary">Film hinzufügen</button>
+    <button routerLink="/create" class="btn btn-primary">Film hinzufügen</button>
   </div>
 </div>
