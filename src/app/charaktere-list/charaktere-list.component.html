@@ -3,29 +3,30 @@
     <h1 class="display-5 fw-bold">Charaktere</h1>
   </div>
   <div class="row row-cols-sm-1 row-cols-md-2 row-cols-lg-3">
-    <div class="col" *ngFor="let charakter of charaktere">
+    <div class="col" *ngFor="let charakter of charaktere; index as i">
       <div class="card border-0 mb-3">
         <img src="./assets/images/ruin.jpg" class="card-img-top" alt="..." />
         <div class="card-body mb-2">
           <h5 class="card-title">{{ charakter.name }}</h5>
           <p class="card-text">
             Geschlecht: {{ charakter.gender }} <br />Geburtsjahr:
-            {{ charakter.birth_year }}
+            {{ charakter.birth_year }} <br />
+            IDFromURL: {{ charakter.url | slice: start:end }}
           </p>
           <a
-            routerLink="/edit/{{ charakter }}"
-            routerLinkActive="active"
             class="card-link"
+            routerLink="/charakteredit/{{ charakter.id }}"
+            routerLinkActive="active"
           >
-            Mehr Informationen
+            Mehr Informationen zu Index: {{ i }}
           </a>
         </div>
       </div>
     </div>
   </div>
   <div class="card-footer">
-    <button routerLink="/create" class="btn btn-primary">
-      Film hinzufügen
+    <button routerLink="/charakterecreate" class="btn btn-primary">
+      Charakter hinzufügen
     </button>
   </div>
 </div>

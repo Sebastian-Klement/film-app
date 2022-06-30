@@ -1,0 +1,47 @@
+<div class="container w-75 border border-danger">
+  <div class="h-100 p-5 text-center">
+    <h5>Characterdetails</h5>
+    <h2 class="display-5 fw-bold">{{ charakter.name }}</h2>
+  </div>
+  <div class="row">
+    <div class="col-6">
+      <h4 class="fw-bold">Details:</h4>
+      <p>
+        Gr&ouml;ße: {{ charakter.height }} <br />
+        Gewicht: {{ charakter.mass }} <br />
+        Haarfarbe: {{ charakter.hair_color }} <br />
+        Augenfarbe: {{ charakter.eye_color }} <br />
+        Geburtsjahr: {{ charakter.birth_year }} <br />
+        Geschlecht: {{ charakter.gender }} <br />
+        Heimatplanet: {{ charakter.homeworld }} <br />
+      </p>
+    </div>
+    <div class="col-6">
+      <img
+        class="card-img-top"
+        src="./assets/images/luke-skywalker.jpg"
+        alt="Image Luke Skywalker"
+      />
+    </div>
+  </div>
+  <div class="row">
+    <h4 class="fw-bold">Filme:</h4>
+    <div class="col-2" *ngFor="let film of charakter.films">
+      <a class="btn btn-secondary" href="#" role="button"
+        >Film {{ film | convertToNumber }}</a
+      >
+    </div>
+  </div>
+  <div class="row">
+    <h4 class="fw-bold">Planeten:</h4>
+    <div class="col"></div>
+  </div>
+  <div class="row">
+    <h4 class="fw-bold">Raumschiffe:</h4>
+    <div class="col"></div>
+  </div>
+  <div class="row">
+    <h4 class="fw-bold">Fahrzeuge:</h4>
+    <div class="col"></div>
+  </div>
+</div>

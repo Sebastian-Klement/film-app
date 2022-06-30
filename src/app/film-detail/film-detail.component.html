@@ -1,0 +1,83 @@
+<div class="container w-75 border border-danger mb-5 p-4">
+  <div class="h-100 text-center">
+    <h5>Filmdetails</h5>
+    <h2 class="display-5 fw-bold">{{ film.title }}</h2>
+    <h4 class="text-none">Episode</h4>
+  </div>
+  <div class="row row-cols-2">
+    <div class="col">
+      <h4 class="fw-bold">Details:</h4>
+      <p class="paragraph">
+        Director: {{ film.director }} <br />
+        Produzent: {{ film.producer }} <br />
+        Erscheinungsdatum: {{ film.release_date }} <br />
+      </p>
+      <p class="paragaph">
+        {{ film.opening_crawl }}
+      </p>
+    </div>
+    <div class="col">
+      <img
+        class="card-img-top"
+        src="./assets/images/luke-skywalker.jpg"
+        alt="Image Luke Skywalker"
+      />
+    </div>
+  </div>
+
+  <div class="section-charakters">
+    <div class="fw-bold h4 mt-4">Charaktere:</div>
+    <div class="row row-cols-lg-5">
+      <div class="col" *ngFor="let charakter of film.characters">
+        <a
+          class="btn"
+          href="/charakteredit/{{ charakter | convertToNumber }}"
+          role="button"
+          >Charakter {{ charakter | convertToNumber }}</a
+        >
+      </div>
+    </div>
+  </div>
+
+  <div class="section-planets">
+    <div class="fw-bold h4 mt-4">Planeten:</div>
+    <div class="row row-cols-lg-5">
+      <div class="col" *ngFor="let planet of film.planets">
+        <a
+          class="btn"
+          href="/charakteredit/{{ planet | convertToNumber }}"
+          role="button"
+          >Planet {{ planet | convertToNumber }}</a
+        >
+      </div>
+    </div>
+  </div>
+
+  <div class="section-starships">
+    <div class="fw-bold h4 mt-4">Raumschiffe:</div>
+    <div class="row row-cols-lg-5">
+      <div class="col" *ngFor="let starship of film.starships">
+        <a
+          class="btn"
+          href="/charakteredit/{{ starship | convertToNumber }}"
+          role="button"
+          >Raumschiff {{ starship | convertToNumber }}</a
+        >
+      </div>
+    </div>
+  </div>
+
+  <div class="section-vehicles">
+    <div class="fw-bold h4 mt-4">Fahrzeuge:</div>
+    <div class="row row-cols-lg-5">
+      <div class="col" *ngFor="let vehicle of film.vehicles">
+        <a
+          class="btn"
+          href="/charakteredit/{{ vehicle | convertToNumber }}"
+          role="button"
+          >Fahrzeug {{ vehicle | convertToNumber }}</a
+        >
+      </div>
+    </div>
+  </div>
+</div>

@@ -15,6 +15,9 @@ import { FilmService } from './film.service';
 import { FilmCreateComponent } from './film-create/film-create.component';
 import { FilmListComponent } from './film-list/film-list.component';
 import { CharaktereListComponent } from './charaktere-list/charaktere-list.component';
+import { CharaktereCreateComponent } from './charaktere-create/charaktere-create.component';
+import { ConvertToNumberPipe } from './convert-to-number.pipe';
+import { FilmDetailComponent } from './film-detail/film-detail.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +27,9 @@ import { CharaktereListComponent } from './charaktere-list/charaktere-list.compo
     FilmCreateComponent,
     FilmListComponent,
     CharaktereListComponent,
+    CharaktereCreateComponent,
+    ConvertToNumberPipe,
+    FilmDetailComponent,
   ],
   imports: [
     BrowserModule,

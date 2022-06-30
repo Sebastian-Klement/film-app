@@ -1,4 +1,5 @@
 export interface Charakter {
+  id: number;
   name: string;
   height: string;
   mass: string;

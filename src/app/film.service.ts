@@ -18,19 +18,34 @@ export class FilmService {
 
   /** GET movies from the server */
   getFilms(): Observable<Film[]> {
-    return (this.response = this.httpClient.get<Film[]>(this.filmUrl));
+    return this.httpClient.get<Film[]>(this.filmUrl);
   }
   /** GET charaktere from the server */
   getCharaktere(): Observable<Charakter[]> {
-    return (this.response = this.httpClient.get<Charakter[]>(
-      this.charakterUrl
-    ));
+    return this.httpClient.get<Charakter[]>(this.charakterUrl);
   }
 
   /** GET movie by id. Will 404 if id not found */
   getFilmById(id: number): Observable<Film> {
-    return (this.response = this.httpClient.get<Film>(this.filmUrl + '/' + id));
+    const url = `${this.filmUrl}/${id}`;
+    return this.httpClient.get<Film>(url);
   }
+
+  /** GET charakter by id. Will 404 if id not found */
+  getCharakterById(id: number): Observable<Charakter> {
+    const url = `${this.charakterUrl}/${id}`;
+    return this.httpClient.get<Charakter>(url);
+  }
+
+  // searchCharakter(term: string): Observable<Charakter> {
+  //   if (!term.trim()) {
+  //     // if not search term, return empty hero array.
+  //     return of();
+  //   }
+  //   return this.httpClient.get<Charakter>(
+  //     `${this.charakterUrl}/?url=${term}`
+  //   );
+  // }
 
   /* GET movies whose name contains search term */
   searchMovies(term: string): Observable<Film[]> {
@@ -51,7 +66,7 @@ export class FilmService {
 
   /** POST: add a new movie to the server */
   addFilm(film: Film): Observable<Film> {
-    return (this.response = this.httpClient.post<Film>(this.filmUrl, film));
+    return this.httpClient.post<Film>(this.filmUrl, film);
   }
 
   /** PUT: update the hero on the server */
