@@ -11,7 +11,6 @@ export class InMemoryDataService implements InMemoryDbService {
   createDb() {
     const films: Film[] = [
       {
-        id: 1,
         title: 'The Phantom Menace',
         episode_id: 1,
         opening_crawl:
@@ -103,7 +102,6 @@ export class InMemoryDataService implements InMemoryDbService {
         url: 'https://swapi.dev/api/films/4/',
       },
       {
-        id: 2,
         title: 'Attack of the Clones',
         episode_id: 2,
         opening_crawl:
@@ -205,7 +203,6 @@ export class InMemoryDataService implements InMemoryDbService {
         url: 'https://swapi.dev/api/films/5/',
       },
       {
-        id: 3,
         title: 'Revenge of the Sith',
         episode_id: 3,
         opening_crawl:
@@ -320,7 +317,6 @@ export class InMemoryDataService implements InMemoryDbService {
         url: 'https://swapi.dev/api/films/6/',
       },
       {
-        id: 4,
         title: 'A New Hope',
         episode_id: 4,
         opening_crawl:
@@ -381,7 +377,6 @@ export class InMemoryDataService implements InMemoryDbService {
         url: 'https://swapi.dev/api/films/1/',
       },
       {
-        id: 5,
         title: 'The Empire Strikes Back',
         episode_id: 5,
         opening_crawl:
@@ -444,7 +439,6 @@ export class InMemoryDataService implements InMemoryDbService {
         url: 'https://swapi.dev/api/films/2/',
       },
       {
-        id: 6,
         title: 'Return of the Jedi',
         episode_id: 6,
         opening_crawl:

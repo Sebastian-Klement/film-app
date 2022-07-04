@@ -22,3 +22,23 @@ h2 {
   opacity: 1;
   padding-top: 30px;
 }
+
+.paragraph {
+  font-size: 18px;
+  text-align: justify;
+  hyphens: auto;
+}
+
+.btn {
+  border: none;
+  background-color: #eee;
+  cursor: pointer;
+  color: #111;
+  border-radius: 0;
+  width: 128px;
+  margin-bottom: 1em;
+}
+
+.btn:hover {
+  background: gray;
+}

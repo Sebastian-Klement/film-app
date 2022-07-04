@@ -1,19 +1,17 @@
-<div class="container w-75 border border-danger mb-5 p-4">
+<div class="container w-75 mt-3 mb-3">
   <div class="h-100 text-center">
     <h5>Filmdetails</h5>
     <h2 class="display-5 fw-bold">{{ film.title }}</h2>
-    <h4 class="text-none">Episode</h4>
+    <h4 class="text">Episode {{ film.episode_id | convertToRomanNumbers }}</h4>
   </div>
-  <div class="row row-cols-2">
+
+  <div class="row mt-3 row-cols-2">
     <div class="col">
       <h4 class="fw-bold">Details:</h4>
       <p class="paragraph">
         Director: {{ film.director }} <br />
         Produzent: {{ film.producer }} <br />
         Erscheinungsdatum: {{ film.release_date }} <br />
-      </p>
-      <p class="paragaph">
-        {{ film.opening_crawl }}
       </p>
     </div>
     <div class="col">
@@ -24,19 +22,26 @@
       />
     </div>
   </div>
+  <div class="section-opening-crawl text-center m-5">
+    <p class="paragaph">
+      {{ film.opening_crawl }}
+    </p>
+  </div>
 
   <div class="section-charakters">
-    <div class="fw-bold h4 mt-4">Charaktere:</div>
-    <div class="row row-cols-lg-5">
-      <div class="col" *ngFor="let charakter of film.characters">
-        <a
-          class="btn"
-          href="/charakteredit/{{ charakter | convertToNumber }}"
-          role="button"
-          >Charakter {{ charakter | convertToNumber }}</a
-        >
+    <details>
+      <summary class="fw-bold h4 mt-4">Charaktere:</summary>
+      <div class="row row-cols-lg-5">
+        <div class="col" *ngFor="let charakter of film.characters">
+          <a
+            class="btn"
+            href="/charakteredit/{{ charakter | convertToNumber }}"
+            role="button"
+            >Charakter {{ charakter | convertToNumber }}</a
+          >
+        </div>
       </div>
-    </div>
+    </details>
   </div>
 
   <div class="section-planets">

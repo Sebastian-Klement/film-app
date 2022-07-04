@@ -42,3 +42,22 @@ h2 {
 .btn:hover {
   background: gray;
 }
+
+summary {
+  list-style: none;
+}
+summary::-webkit-details-marker {
+  display: none;
+}
+
+details summary::after {
+  content: " display all ...";
+  color: red;
+  /* you can style it however you want, use background-image for example */
+}
+
+/* By using [open] we can define different styles when the disclosure widget is open */
+details[open] summary::after {
+  content: " 🡑";
+  color: red;
+}

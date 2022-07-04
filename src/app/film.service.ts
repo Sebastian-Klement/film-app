@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
-import { tap } from 'rxjs/operators';
+import { map, tap } from 'rxjs/operators';
 
 import { Charakter } from './charakter.model';
 import { Film } from './film.model';
@@ -10,19 +10,24 @@ import { Film } from './film.model';
   providedIn: 'root',
 })
 export class FilmService {
-  filmUrl: string = '/api/films';
-  charakterUrl: string = '/api/charaktere';
+  filmUrl: string = 'https://swapi.dev/api/films/';
+  charakterUrl: string = 'https://swapi.dev/api/people/';
+  planetUrl: string='https://swapi.dev/api/planets/'
   response: any;
 
   constructor(private httpClient: HttpClient) {}
 
   /** GET movies from the server */
   getFilms(): Observable<Film[]> {
-    return this.httpClient.get<Film[]>(this.filmUrl);
+    return this.httpClient
+      .get<any>(this.filmUrl)
+      .pipe(map((result) => result['results']));
   }
   /** GET charaktere from the server */
   getCharaktere(): Observable<Charakter[]> {
-    return this.httpClient.get<Charakter[]>(this.charakterUrl);
+    return this.httpClient
+      .get<any>(this.charakterUrl)
+      .pipe(map((result) => result['results']));
   }
 
   /** GET movie by id. Will 404 if id not found */

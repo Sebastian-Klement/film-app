@@ -11,7 +11,6 @@ import { FilmService } from '../film.service';
 })
 export class FilmDetailComponent implements OnInit {
   film: Film = {
-    id: 0,
     title: '',
     episode_id: 0,
     opening_crawl: '',

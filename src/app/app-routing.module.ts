@@ -4,15 +4,19 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
 
-import { CharaktereCreateComponent } from './charaktere-create/charaktere-create.component';
+import { CharaktereDetailComponent } from './charaktere-detail/charaktere-detail.component';
 import { CharaktereListComponent } from './charaktere-list/charaktere-list.component';
-import { FilmCreateComponent } from './film-create/film-create.component';
 import { FilmDetailComponent } from './film-detail/film-detail.component';
 import { FilmListComponent } from './film-list/film-list.component';
 
 import { HomeComponent } from './home/home.component';
+import { PlanetListComponent } from './planet-list/planet-list.component';
 
 const routes: Routes = [
+  {
+    path: 'planeten',
+    component: PlanetListComponent,
+  },
   {
     path: 'films',
     component: FilmListComponent,
@@ -22,24 +26,12 @@ const routes: Routes = [
     component: FilmDetailComponent,
   },
   {
-    path: 'create',
-    component: FilmCreateComponent,
-  },
-  {
-    path: 'edit/:episode_id',
-    component: FilmCreateComponent,
-  },
-  {
     path: 'charaktere',
     component: CharaktereListComponent,
   },
   {
-    path: 'charakterecreate',
-    component: CharaktereCreateComponent,
-  },
-  {
     path: 'charakteredit/:id',
-    component: CharaktereCreateComponent,
+    component: CharaktereDetailComponent,
   },
   {
     path: 'home',

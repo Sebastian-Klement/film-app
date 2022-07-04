@@ -1,0 +1,82 @@
+<div class="container w-75 mt-3 mb-3">
+  <div class="h-100 text-center">
+    <h5>Characterdetails</h5>
+    <h2 class="display-5 fw-bold">{{ charakter.name }}</h2>
+  </div>
+  <div class="row mt-3 row-cols-2">
+    <div class="col">
+      <h4 class="fw-bold">Details:</h4>
+      <p>
+        Gr&ouml;ße: {{ charakter.height }} <br />
+        Gewicht: {{ charakter.mass }} <br />
+        Haarfarbe: {{ charakter.hair_color }} <br />
+        Augenfarbe: {{ charakter.eye_color }} <br />
+        Geburtsjahr: {{ charakter.birth_year }} <br />
+        Geschlecht: {{ charakter.gender }} <br />
+        Heimatplanet: {{ charakter.homeworld }} <br />
+      </p>
+    </div>
+    <div class="col">
+      <img
+        class="card-img-top"
+        src="./assets/images/luke-skywalker.jpg"
+        alt="Image Luke Skywalker"
+      />
+    </div>
+  </div>
+
+  <div class="section-filme" *ngIf="charakter.films.length > 0">
+    <div class="row">
+      <div class="h4 fw-bold mt-4">Filme:</div>
+      <div class="row row-cols-lg-5">
+        <div class="col" *ngFor="let film of charakter.films">
+          <a
+            class="btn"
+            href="/filmdetail/{{ film | convertToNumber }}"
+            role="button"
+            >Film {{ film | convertToNumber }}</a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-planeten" *ngIf="charakter.species.length > 0">
+    <div class="row">
+      <div class="h4 fw-bold mt-4">Species:</div>
+      <div class="row row-cols-lg-5">
+        <div class="col" *ngFor="let specie of charakter.species">
+          <a class="btn" href="#" role="button"
+            >Spezie {{ specie | convertToNumber }}</a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-starships" *ngIf="charakter.starships.length > 0">
+    <div class="row">
+      <div class="h4 fw-bold mt-4">Raumschiffe:</div>
+      <div class="row row-cols-lg-5">
+        <div class="col" *ngFor="let starship of charakter.starships">
+          <a class="btn" href="#" role="button"
+            >Film {{ starship | convertToNumber }}</a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-vehicles" *ngIf="charakter.vehicles.length > 0">
+    <div class="row">
+      <div class="h4 fw-bold mt-4">Fahrzeuge:</div>
+      <div class="row row-cols-lg-5">
+        <div class="col" *ngFor="let vehicle of charakter.vehicles">
+          <a class="btn" href="#" role="button"
+            >Film {{ vehicle | convertToNumber }}</a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
