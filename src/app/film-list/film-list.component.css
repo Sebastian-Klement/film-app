@@ -25,3 +25,11 @@
   position: absolute;
   bottom: 1em;
 }
+
+.form {
+  justify-content: center;
+}
+
+.form-control {
+  text-align: center;
+}

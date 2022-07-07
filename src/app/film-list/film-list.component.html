@@ -1,12 +1,21 @@
 <div class="container w-75">
   <div class="h-100 p-5 text-center">
     <h1 class="display-5 fw-bold">Filme</h1>
+    <div class="form d-flex">
+      <input
+        type="text"
+        class="form-control mb-4 w-25"
+        placeholder="Search"
+        [(ngModel)]="searchText"
+        id="listSearch"
+      />
+    </div>
   </div>
 
   <div class="row row-cols-sm-1 row-cols-md-2 row-cols-lg-3">
-    <div class="col mb-4" *ngFor="let film of films">
+    <div class="col mb-4" *ngFor="let film of films | filter: searchText">
       <div class="card border-0">
-        <img src="./assets/images/ruin.jpg" class="card-img-top" alt="..." />
+        <img src="./assets/images/film.jpg" class="card-img-top" alt="..." />
         <div class="card-body">
           <h5 class="card-title">{{ film.title }}</h5>
           <p class="card-text">
@@ -14,7 +23,11 @@
             {{ film.producer }} <br />Erscheinungsdatum:
             {{ film.release_date }}
           </p>
-          <a routerLink="/filmdetail/{{ film.episode_id }}" routerLinkActive="active" class="card-link">
+          <a
+            routerLink="/filmdetail/{{ film.url | slice:28:32 }}"
+            routerLinkActive="active"
+            class="card-link"
+          >
             Mehr Informationen
           </a>
         </div>

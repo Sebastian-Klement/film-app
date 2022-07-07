@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, of } from 'rxjs';
+import { Observable, of, forkJoin } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
 
-import { Charakter } from './charakter.model';
-import { Film } from './film.model';
+import { Charakter } from './models/charakter.model';
+import { Film } from './models/film.model';
+import { Planet } from './models/planet.model';
 
 @Injectable({
   providedIn: 'root',
@@ -12,8 +13,8 @@ import { Film } from './film.model';
 export class FilmService {
   filmUrl: string = 'https://swapi.dev/api/films/';
   charakterUrl: string = 'https://swapi.dev/api/people/';
-  planetUrl: string='https://swapi.dev/api/planets/'
-  response: any;
+  planetUrl: string = 'https://swapi.dev/api/planets/';
+  res: any;
 
   constructor(private httpClient: HttpClient) {}
 
@@ -28,6 +29,26 @@ export class FilmService {
     return this.httpClient
       .get<any>(this.charakterUrl)
       .pipe(map((result) => result['results']));
+  }
+
+  /** GET planets from the server */
+  getPlanets(): Observable<Planet[]> {
+    return this.httpClient
+      .get<any>(this.planetUrl)
+      .pipe(map((result) => result['results']));
+  }
+
+  getPlanetById(id: number): Observable<Planet> {
+    const url = `${this.planetUrl}/${id}`;
+    return this.httpClient.get<Planet>(url);
+  }
+
+  getPlanetByUrl(url: string): Observable<Planet> {
+    return this.httpClient.get<Planet>(url);
+  }
+
+  getCharakterByUrl(url: string): Observable<Charakter> {
+    return this.httpClient.get<Charakter>(url);
   }
 
   /** GET movie by id. Will 404 if id not found */

@@ -1,7 +1,6 @@
-import { SlicePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 
-import { Charakter } from '../charakter.model';
+import { Charakter } from '../models/charakter.model';
 import { FilmService } from '../film.service';
 
 @Component({
@@ -18,8 +17,8 @@ export class CharaktereListComponent implements OnInit {
 
   ngOnInit(): void {
     this.filmService.getCharaktere().subscribe({
-      next: (result) => {
-        this.charaktere = result;
+      next: (data: Charakter[]) => {
+        this.charaktere = data;
       },
       error: (err) => {
         console.error('something wrong occurred: ' + err);

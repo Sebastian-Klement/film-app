@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 
 import { FilmService } from '../film.service';
-import { Charakter } from '../charakter.model';
+import { Charakter } from '../models/charakter.model';
 
 @Component({
   selector: 'app-charaktere-detail',
@@ -10,6 +10,7 @@ import { Charakter } from '../charakter.model';
   styleUrls: ['./charaktere-detail.component.css'],
 })
 export class CharaktereDetailComponent implements OnInit {
+  homeWorldUrl: string = '';
   charakter: Charakter = {
     id: 0,
     name: '',
@@ -31,16 +32,20 @@ export class CharaktereDetailComponent implements OnInit {
   };
 
   constructor(
-    private router: Router,
     private activatedRoute: ActivatedRoute,
     private filmService: FilmService
   ) {}
 
   ngOnInit(): void {
     var id = Number(this.activatedRoute.snapshot.paramMap.get('id'));
-    console.log(id);
-    this.filmService.getCharakterById(id).subscribe((result) => {
-      this.charakter = result;
+    this.filmService.getCharakterById(id).subscribe((charById) => {
+      this.charakter = charById;
+      this.homeWorldUrl = charById.homeworld;
+      this.filmService
+        .getPlanetByUrl(charById.homeworld)
+        .subscribe((planet) => {
+          this.charakter.homeworld = planet['name'];
+        });
     });
   }
 }

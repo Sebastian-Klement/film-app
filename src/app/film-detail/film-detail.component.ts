@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 
-import { Film } from '../film.model';
+import { Film } from '../models/film.model';
 import { FilmService } from '../film.service';
 
 @Component({
@@ -28,15 +28,22 @@ export class FilmDetailComponent implements OnInit {
   };
 
   constructor(
-    private router: Router,
     private activatedRoute: ActivatedRoute,
     private filmService: FilmService
   ) {}
 
   ngOnInit(): void {
-    var id = Number(this.activatedRoute.snapshot.paramMap.get('episode_id'));
-    this.filmService.getFilmById(id).subscribe((result) => {
-      this.film = result;
+    var id = Number(this.activatedRoute.snapshot.paramMap.get('id'));
+    this.filmService.getFilmById(id).subscribe({
+      next: (data) => {
+        this.film = data;
+      },
+      error: (err) => {
+        console.error('something wrong occurred: ' + err);
+      },
+      complete: () => {
+        console.log(this.film);
+      },
     });
   }
 }

@@ -13,8 +13,16 @@
         Augenfarbe: {{ charakter.eye_color }} <br />
         Geburtsjahr: {{ charakter.birth_year }} <br />
         Geschlecht: {{ charakter.gender }} <br />
-        Heimatplanet: {{ charakter.homeworld }} <br />
       </p>
+      <div class="d-flex align-items-baseline">
+        <p>Heimatplanet: </p>
+        <a
+          class="btn "
+          href="/planetdetail/{{ homeWorldUrl | convertToNumber }}"
+          role="button"
+          >{{ charakter.homeworld }}</a
+        >
+      </div>
     </div>
     <div class="col">
       <img

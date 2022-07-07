@@ -10,6 +10,7 @@ import { FilmDetailComponent } from './film-detail/film-detail.component';
 import { FilmListComponent } from './film-list/film-list.component';
 
 import { HomeComponent } from './home/home.component';
+import { PlanetDetailComponent } from './planet-detail/planet-detail.component';
 import { PlanetListComponent } from './planet-list/planet-list.component';
 
 const routes: Routes = [
@@ -18,11 +19,15 @@ const routes: Routes = [
     component: PlanetListComponent,
   },
   {
+    path: 'planetdetail/:id',
+    component: PlanetDetailComponent,
+  },
+  {
     path: 'films',
     component: FilmListComponent,
   },
   {
-    path: 'filmdetail/:episode_id',
+    path: 'filmdetail/:id',
     component: FilmDetailComponent,
   },
   {
@@ -30,7 +35,7 @@ const routes: Routes = [
     component: CharaktereListComponent,
   },
   {
-    path: 'charakteredit/:id',
+    path: 'charakterdetail/:id',
     component: CharaktereDetailComponent,
   },
   {

@@ -10,12 +10,12 @@
         <div class="card-body">
           <h5 class="card-title">{{ charakter.name }}</h5>
           <p class="card-text">
-            Geschlecht: {{ charakter.gender }} <br />Geburtsjahr:
-            {{ charakter.birth_year }} <br />
+            Geschlecht: {{ charakter.gender }} <br />
+            Geburtsjahr: {{ charakter.birth_year }}
           </p>
           <a
             class="card-link"
-            routerLink="/charakteredit/{{ charakter.url | slice: start:end }}"
+            routerLink="/charakterdetail/{{ charakter.url | slice: start:end }}"
             routerLinkActive="active"
           >
             Mehr Informationen
@@ -24,10 +24,4 @@
       </div>
     </div>
   </div>
-  <!-- TODO -->
-  <!-- <div class="card-footer">
-    <button routerLink="/charakterecreate" class="btn btn-primary">
-      Charakter hinzufügen
-    </button>
-  </div> -->
 </div>

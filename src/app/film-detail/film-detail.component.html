@@ -17,8 +17,8 @@
     <div class="col">
       <img
         class="card-img-top"
-        src="./assets/images/luke-skywalker.jpg"
-        alt="Image Luke Skywalker"
+        src="./assets/images/film.jpg"
+        alt="Image Film-Cover"
       />
     </div>
   </div>
@@ -29,19 +29,17 @@
   </div>
 
   <div class="section-charakters">
-    <details>
-      <summary class="fw-bold h4 mt-4">Charaktere:</summary>
-      <div class="row row-cols-lg-5">
-        <div class="col" *ngFor="let charakter of film.characters">
-          <a
-            class="btn"
-            href="/charakteredit/{{ charakter | convertToNumber }}"
-            role="button"
-            >Charakter {{ charakter | convertToNumber }}</a
-          >
-        </div>
+    <div class="fw-bold h4 mt-4">Charaktere:</div>
+    <div class="row row-cols-lg-5">
+      <div class="col" *ngFor="let charakter of film.characters">
+        <a
+          class="btn"
+          href="/charakterdetail/{{ charakter | convertToNumber }}"
+          role="button"
+          >Charakter {{ charakter | convertToNumber }}</a
+        >
       </div>
-    </details>
+    </div>
   </div>
 
   <div class="section-planets">
@@ -50,7 +48,7 @@
       <div class="col" *ngFor="let planet of film.planets">
         <a
           class="btn"
-          href="/charakteredit/{{ planet | convertToNumber }}"
+          href="/planetdetail/{{ planet | convertToNumber }}"
           role="button"
           >Planet {{ planet | convertToNumber }}</a
         >
@@ -62,10 +60,7 @@
     <div class="fw-bold h4 mt-4">Raumschiffe:</div>
     <div class="row row-cols-lg-5">
       <div class="col" *ngFor="let starship of film.starships">
-        <a
-          class="btn"
-          href="/charakteredit/{{ starship | convertToNumber }}"
-          role="button"
+        <a class="btn" href="#" role="button"
           >Raumschiff {{ starship | convertToNumber }}</a
         >
       </div>
@@ -76,10 +71,7 @@
     <div class="fw-bold h4 mt-4">Fahrzeuge:</div>
     <div class="row row-cols-lg-5">
       <div class="col" *ngFor="let vehicle of film.vehicles">
-        <a
-          class="btn"
-          href="/charakteredit/{{ vehicle | convertToNumber }}"
-          role="button"
+        <a class="btn" href="#" role="button"
           >Fahrzeug {{ vehicle | convertToNumber }}</a
         >
       </div>
